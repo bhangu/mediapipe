@@ -15,10 +15,16 @@
         }
       },
       "entryPoint": null,
-      "portMappings": [],
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "protocol": "tcp",
+          "containerPort": 80
+        }
+      ],
       "command": null,
       "linuxParameters": null,
-      "cpu": 0,
+      "cpu": 1024,
       "environment": [],
       "resourceRequirements": null,
       "ulimits": null,
@@ -52,13 +58,13 @@
     }
   ],
   "placementConstraints": [],
-  "memory": "4096",
+  "memory": "10240",
   "taskRoleArn": "arn:aws:iam::296812915484:role/ecsTaskExecutionRole",
   "compatibilities": [
     "EC2",
     "FARGATE"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:296812915484:task-definition/media-pipe:1",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:296812915484:task-definition/media-pipe:4",
   "family": "media-pipe",
   "requiresAttributes": [
     {
@@ -77,6 +83,12 @@
       "targetId": null,
       "targetType": null,
       "value": null,
+      "name": "ecs.capability.efsAuth"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
       "name": "com.amazonaws.ecs.capability.ecr-auth"
     },
     {
@@ -89,7 +101,19 @@
       "targetId": null,
       "targetType": null,
       "value": null,
+      "name": "ecs.capability.efs"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
       "name": "com.amazonaws.ecs.capability.task-iam-role"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.25"
     },
     {
       "targetId": null,
@@ -115,10 +139,26 @@
     "FARGATE"
   ],
   "networkMode": "awsvpc",
-  "cpu": "2048",
-  "revision": 1,
+  "cpu": "4096",
+  "revision": 4,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
-  "volumes": []
+  "volumes": [
+    {
+      "efsVolumeConfiguration": {
+        "transitEncryptionPort": null,
+        "fileSystemId": "fs-0f6fd38c",
+        "authorizationConfig": {
+          "iam": "DISABLED",
+          "accessPointId": "fsap-0357f9387b1df343d"
+        },
+        "transitEncryption": "ENABLED",
+        "rootDirectory": "/"
+      },
+      "name": "media-pipe-efs",
+      "host": null,
+      "dockerVolumeConfiguration": null
+    }
+  ]
 }
