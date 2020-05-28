@@ -1,7 +1,7 @@
 ![MediaPipe](mediapipe/docs/images/mediapipe_small.png?raw=true "MediaPipe logo")
 =======================================================================
 
-[MediaPipe](http://mediapipe.dev) is the simplest way for researchers and developers to build world-class ML solutions and applications for mobile, edge, cloud and the web.
+[MediaPipe](http://mediapipe.dev) is the simplest way for researchers and developers to build world-class ML solutions and applications for mobile, edge, cloud and the web. 
 
 ## ML Solutions in MediaPipe
 
